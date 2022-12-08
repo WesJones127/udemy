@@ -10,6 +10,7 @@ const SurveyNew = () => <h2>SurveyNew</h2>;
 
 class App extends Component {
   componentDidMount() {
+    debugger;
     this.props.fetchUser();
   }
 

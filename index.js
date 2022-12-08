@@ -22,9 +22,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", (req, res) => {
-  res.send("home");
-});
+// app.get("/", (req, res) => {
+//   res.send("home");
+// });
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 
