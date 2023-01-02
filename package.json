@@ -19,9 +19,11 @@
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "cookie-session": "^2.0.0",
     "express": "^4.18.2",
+    "lodash": "^4.17.21",
     "mongoose": "^6.7.2",
     "passport": "^0.5.3",
     "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^6.1.0",
     "sendgrid": "^5.2.3",
     "stripe": "^11.1.0"
   },
