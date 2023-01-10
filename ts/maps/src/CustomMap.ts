@@ -1,5 +1,14 @@
 /// <reference types="@types/google.maps" />
 
+export interface Mappable {
+  location: {
+    lat: number;
+    lng: number;
+  };
+  markerContent(): string;
+  color: string;
+}
+
 export class CustomMap {
   private googleMap: google.maps.Map;
 
@@ -13,13 +22,21 @@ export class CustomMap {
     );
   }
 
-  addMarker(location: { lat: number; lng: number }) {
-    new google.maps.Marker({
+  addMarker(mappable: Mappable) {
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: location.lat,
-        lng: location.lng,
+        lat: mappable.location.lat,
+        lng: mappable.location.lng,
       },
+    });
+
+    marker.addListener("click", () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: mappable.markerContent(),
+      });
+
+      infoWindow.open(this.googleMap, marker);
     });
     // this.googleMap.setCenter({ lat: location.lat, lng: location.lng });
   }
