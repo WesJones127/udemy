@@ -4,12 +4,12 @@ exports.MatchReader = void 0;
 const utils_1 = require("./utils");
 const CSVFileReader_1 = require("./CSVFileReader");
 class MatchReader {
+    static fromCsv(filename) {
+        return new MatchReader(new CSVFileReader_1.CSVFileReader(filename));
+    }
     constructor(reader) {
         this.reader = reader;
         this.matches = [];
-    }
-    static fromCsv(filename) {
-        return new MatchReader(new CSVFileReader_1.CSVFileReader(filename));
     }
     load() {
         this.reader.read();
