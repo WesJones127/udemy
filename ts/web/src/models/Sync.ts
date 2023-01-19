@@ -7,6 +7,7 @@ export class Sync<T extends HasId> {
   constructor(public rootUrl: string) {}
 
   fetch(id: number): AxiosPromise {
+    console.log(`${this.rootUrl}/${id}`);
     return axios.get(`${this.rootUrl}/${id}`);
   }
 
