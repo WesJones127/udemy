@@ -1,9 +1,8 @@
-import { User } from "./models/User";
+import { User, UserProps } from './models/User';
+import axios, { AxiosResponse } from 'axios';
+import { Collection } from './models/Collection';
+import { UserForm } from './views/UserForm';
 
-const user = User.buildUser({ id: 1 });
+const userForm = new UserForm(document.getElementById('root'));
 
-user.on("change", () => {
-  console.log("user changed");
-});
-
-user.fetch();
+userForm.render();
